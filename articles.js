@@ -2,6 +2,20 @@ Ti.include('helper.js');
 
 var win = Ti.UI.currentWindow;
 
+var addBtn = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
+addBtn.addEventListener('click', function() {
+	var addwin = Ti.UI.createWindow({
+		url: 'form.js',
+		title: 'Create Article'
+	});
+	
+	addwin.formType = 'article';
+	
+	Ti.UI.currentTab.open(addwin);
+});
+
+win.rightNavButton = addBtn;
+
 var rows = [];
 
 var data = Helper.xhr({ 
