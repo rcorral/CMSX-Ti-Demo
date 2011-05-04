@@ -2,25 +2,11 @@ Ti.include('helper.js');
 
 var win = Ti.UI.currentWindow;
 
-var addBtn = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
-addBtn.addEventListener('click', function() {
-	var addwin = Ti.UI.createWindow({
-		url: 'form.js',
-		title: 'Create Article'
-	});
-	
-	addwin.formType = 'article';
-	
-	Ti.UI.currentTab.open(addwin);
-});
-
-win.rightNavButton = addBtn;
-
 var rows = [];
 
 var data = Helper.xhr({ 
 	json: true,
-	url: 'http://192.168.1.113/com_api/site/index.php?option=com_api&app=content&resource=articles&categoryid=' + win.data + '&key=38467708868b0256f56e9a70e60a8c2214c9b1e8',
+	url: 'http://172.16.0.15/com_api/site/index.php?option=com_api&app=content&resource=articles&categoryid=' + win.data + '&key=38467708868b0256f56e9a70e60a8c2214c9b1e8',
 	callback: function(e) {
 		
 		for (var i = 0; i < e.length; i++) {

@@ -20,13 +20,14 @@ var rows = [];
 
 var data = Helper.xhr({ 
 	json: true,
-	url: 'http://192.168.1.113/com_api/site/index.php?option=com_api&app=content&resource=sections&key=38467708868b0256f56e9a70e60a8c2214c9b1e8',
+	url: 'http://172.16.0.15/com_api/site/index.php?option=com_api&app=content&resource=sections&key=38467708868b0256f56e9a70e60a8c2214c9b1e8',
 	callback: function(e) {
 		
 		for (var i = 0; i < e.length; i++) {
 			var row = Ti.UI.createTableViewRow({ 
 				height: 'auto',
-				sectionid: e[i].id 
+				sectionid: e[i].id,
+				hasDetail: true 
 			});
 			
 			var label = Ti.UI.createLabel({
